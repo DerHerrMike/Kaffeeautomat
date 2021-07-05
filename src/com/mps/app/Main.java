@@ -10,16 +10,7 @@ public class Main {
         BeverageFactory factory = new BeverageFactory();
 
         BeverageStore automat = new BeverageStore(factory);
-
-//        AbstractBeverage grosserBrauner = automat.orderBeverage("Großer Brauner");
-//        AbstractBeverage schokolade = automat.orderBeverage("Schoko");
-//        AbstractBeverage cappuccino = automat.orderBeverage("Cappuccino");
-//        AbstractBeverage espresso = automat.orderBeverage("Espresso");
-//        AbstractBeverage kaffeeSchwarz = automat.orderBeverage("Kaffee Schwarz");
-//        AbstractBeverage kleinerBrauner = automat.orderBeverage("Kleiner Brauner");
-//        AbstractBeverage latte = automat.orderBeverage("Latte");
-//        AbstractBeverage irish = automat.orderBeverage("Irish");
-
+        double paidAmount = automat.getPayment();
         String selectedBeverage = automat.getOrder();
         System.out.println();
         System.out.println();
@@ -35,15 +26,6 @@ public class Main {
             case "Irish Coffee" -> presentIC(automat);
         }
         System.out.println("Genießen Sie Ihr Heißgetränk. Liebe Grüße, Mike");
-
-
-
-
-
-
-
-
-
 
     }
 
