@@ -38,6 +38,7 @@ public class BeverageStore {
             System.out.println("Bitte weitere Münzen einwerfen (min. 50 Cent)!");
             System.out.println("Weiterer eingeworfener Betrag: ");
             inserted = inserted + scanner.nextDouble();
+            scanner.nextLine();
         }
         setInsertedAmount(inserted);
 
