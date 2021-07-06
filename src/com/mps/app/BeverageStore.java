@@ -26,7 +26,7 @@ public class BeverageStore {
         return factory.createBeverage(type);
     }
 
-    public double getPayment() {
+    public void makePayment() {
 
         System.out.println();
         System.out.println("Bitte Münzen einwerfen:");
@@ -34,6 +34,7 @@ public class BeverageStore {
         System.out.println("Eingeworfener Betrag (double): ");
         double inserted = scanner.nextDouble();
         scanner.nextLine();
+        inserted = Math.round(100.0*inserted)/100.0;
         while (inserted < 0.5) {
             System.out.println("Bitte weitere Münzen einwerfen (min. 50 Cent)!");
             System.out.println("Weiterer eingeworfener Betrag: ");
@@ -41,12 +42,9 @@ public class BeverageStore {
             scanner.nextLine();
         }
         setInsertedAmount(inserted);
-
-        return getInsertedAmount();
-
     }
 
-    public String getOrder() {
+    public void placeOrder() {
 
         System.out.println();
 
@@ -61,11 +59,10 @@ public class BeverageStore {
             System.out.println("Cappuccino");
             System.out.println("Latte");
             System.out.println("Heiße Schoko");
-//            System.out.println("Irish Coffee");
             System.out.println("****************************************");
             System.out.println();
             System.out.println("Bitte geben Sie den gewünschten Produktnamen ein: ");
-            return orderBeverage = scanner.nextLine();
+            setOrderBeverage(scanner.nextLine());
 
         } else if (getInsertedAmount() >= 0.6) {
             System.out.println("Folgende Produkte können gekauft werden:");
@@ -81,9 +78,18 @@ public class BeverageStore {
             System.out.println("****************************************");
             System.out.println();
             System.out.println("Bitte geben Sie den gewünschten Produktnamen ein: ");
-            return orderBeverage = scanner.nextLine();
+            setOrderBeverage(scanner.nextLine());
         }
-        return null;
+    }
+
+    public String getOrderBeverage() {
+
+        return orderBeverage;
+    }
+
+    public void setOrderBeverage(String orderBeverage) {
+
+        this.orderBeverage = orderBeverage;
     }
 
     public double getInsertedAmount() {
