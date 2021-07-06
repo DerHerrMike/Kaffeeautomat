@@ -18,7 +18,7 @@ public class BeverageFactory {
     AbstractShot chocolateShot = new ShotChocolate(1);
 
 
-    public AbstractBeverage createBeverage(String type) {
+    public AbstractBeverage createBeverage(String type, boolean sugar) {
 
         if (type == null) {
             return null;

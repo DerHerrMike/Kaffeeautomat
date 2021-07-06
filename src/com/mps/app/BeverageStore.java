@@ -16,16 +16,18 @@ public class BeverageStore {
     BeverageFactory factory;
     String orderBeverage;
     double insertedAmount;
+    boolean cup;
+    boolean sugar;
 
     public BeverageStore(BeverageFactory factory) {
 
         this.factory = factory;
     }
 
-    public AbstractBeverage orderBeverage(String type) {
+    public AbstractBeverage orderBeverage(String type, boolean sugar) {
 
 
-        return factory.createBeverage(type);
+        return factory.createBeverage(type, sugar);
     }
 
     public void makePayment() {
@@ -45,6 +47,38 @@ public class BeverageStore {
         }
         setInsertedAmount(inserted);
     }
+
+    public void preSelectCup() {
+
+        int cupSelection;
+        String cup;
+        do {
+            System.out.println("Wählen Sie '1' für Ausgabe in Standardbecher oder '0', wenn Sie einen eigenen Becher verwenden: ");
+            cup = scanner.nextLine();
+        } while (!cup.equals("0") && !cup.equals("1"));
+        cupSelection = Integer.parseInt(cup);
+        if ((cupSelection == 0)) {
+            System.out.println("Bitte Ihren Becher unterstellen!");
+            setCup(false);
+        } else setCup(true);
+
+    }
+
+    public void preSelectSugar(){
+
+        int sugarSelection;
+        String sugar;
+        do{
+            System.out.println("Wählen Sie '1' für reguläre Zubereitung oder '0', wenn Sie keinen Zucker wollen: ");
+            sugar = scanner.nextLine();
+        } while (!sugar.equals("0") && !sugar.equals("1"));
+        sugarSelection = Integer.parseInt(sugar);
+        if(sugarSelection==0){
+            System.out.println("Getränk wird ohne Zucker zubereite!");
+            setSugar(false);
+        }else setSugar(true);
+    }
+
 
     public void placeOrder() {
 
@@ -140,5 +174,25 @@ public class BeverageStore {
     public void setInsertedAmount(double insertedAmount) {
 
         this.insertedAmount = insertedAmount;
+    }
+
+    public boolean isCup() {
+
+        return cup;
+    }
+
+    public void setCup(boolean cup) {
+
+        this.cup = cup;
+    }
+
+    public boolean isSugar() {
+
+        return sugar;
+    }
+
+    public void setSugar(boolean sugar) {
+
+        this.sugar = sugar;
     }
 }

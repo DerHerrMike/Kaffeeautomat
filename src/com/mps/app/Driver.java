@@ -16,6 +16,8 @@ public class Driver {
         DecimalFormat f = new DecimalFormat("##.00");
 
         automat.makePayment();
+        automat.preSelectCup();
+        automat.preSelectSugar();
         automat.placeOrder();
         System.out.println();
         System.out.println();
@@ -35,8 +37,8 @@ public class Driver {
     }
 
     static void presentGB(BeverageStore automat, DecimalFormat f) {
-
-        AbstractBeverage grosserBrauner = automat.orderBeverage("Großer Brauner");
+        boolean sugar = automat.isSugar();
+        AbstractBeverage grosserBrauner = automat.orderBeverage("Großer Brauner",sugar);
         System.out.println(grosserBrauner.getDescription() + ".");
         System.out.println("Der Preis beträgt € " + f.format(grosserBrauner.cost()) + ".");
         System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - grosserBrauner.cost())));
@@ -44,8 +46,8 @@ public class Driver {
     }
 
     static void presentCC(BeverageStore automat, DecimalFormat f) {
-
-        AbstractBeverage cappuccino = automat.orderBeverage("Cappuccino");
+        boolean sugar = automat.isSugar();
+        AbstractBeverage cappuccino = automat.orderBeverage("Cappuccino",sugar);
         System.out.println(cappuccino.getDescription() + ".");
         System.out.println("Der Preis beträgt € " + f.format(cappuccino.cost()) + ".");
         System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - cappuccino.cost())));
@@ -53,8 +55,8 @@ public class Driver {
     }
 
     static void presentEP(BeverageStore automat, DecimalFormat f) {
-
-        AbstractBeverage espresso = automat.orderBeverage("Espresso");
+        boolean sugar = automat.isSugar();
+        AbstractBeverage espresso = automat.orderBeverage("Espresso",sugar);
         System.out.println(espresso.getDescription() + ".");
         System.out.println("Der Preis beträgt € " + f.format(espresso.cost()) + ".");
         System.out.println("Münzauswurf €: " + ((f.format(automat.getInsertedAmount() - espresso.cost()))));
@@ -62,8 +64,8 @@ public class Driver {
     }
 
     static void presentKS(BeverageStore automat, DecimalFormat f) {
-
-        AbstractBeverage kaffeeSchwarz = automat.orderBeverage("Kaffee Schwarz");
+        boolean sugar = automat.isSugar();
+        AbstractBeverage kaffeeSchwarz = automat.orderBeverage("Kaffee Schwarz",sugar);
         System.out.println(kaffeeSchwarz.getDescription() + ".");
         System.out.println("Der Preis beträgt € " + f.format(kaffeeSchwarz.cost()) + ".");
         System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - kaffeeSchwarz.cost())));
@@ -71,8 +73,8 @@ public class Driver {
     }
 
     static void presentKB(BeverageStore automat, DecimalFormat f) {
-
-        AbstractBeverage kleinerBrauner = automat.orderBeverage("Kleiner Brauner");
+        boolean sugar = automat.isSugar();
+        AbstractBeverage kleinerBrauner = automat.orderBeverage("Kleiner Brauner",sugar);
         System.out.println(kleinerBrauner.getDescription() + ".");
         System.out.println("Der Preis beträgt € " + f.format(kleinerBrauner.cost()) + ".");
         System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - kleinerBrauner.cost())));
@@ -80,8 +82,8 @@ public class Driver {
     }
 
     static void presentLA(BeverageStore automat, DecimalFormat f) {
-
-        AbstractBeverage latte = automat.orderBeverage("Latte");
+        boolean sugar = automat.isSugar();
+        AbstractBeverage latte = automat.orderBeverage("Latte",sugar);
         System.out.println(latte.getDescription() + ".");
         System.out.println("Der Preis beträgt € " + f.format(latte.cost() + "."));
         System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - latte.cost())));
@@ -89,8 +91,8 @@ public class Driver {
     }
 
     static void presentIC(BeverageStore automat, DecimalFormat f) {
-
-        AbstractBeverage irish = automat.orderBeverage("Irish Coffee");
+        boolean sugar = automat.isSugar();
+        AbstractBeverage irish = automat.orderBeverage("Irish Coffee",sugar);
         System.out.println(irish.getDescription() + ".");
         System.out.println("Der Preis beträgt € " + f.format(irish.cost() + "."));
         System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - irish.cost())));
@@ -98,8 +100,8 @@ public class Driver {
     }
 
     static void presentSH(BeverageStore automat, DecimalFormat f) {
-
-        AbstractBeverage schokolade = automat.orderBeverage("Heiße Schoko");
+        boolean sugar = automat.isSugar();
+        AbstractBeverage schokolade = automat.orderBeverage("Heiße Schoko",sugar);
         System.out.println(schokolade.getDescription() + ".");
         System.out.println("Der Preis beträgt € " + f.format(schokolade.cost()) + ".");
         System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - schokolade.cost())));
