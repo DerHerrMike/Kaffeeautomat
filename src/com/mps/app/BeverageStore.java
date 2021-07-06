@@ -31,13 +31,23 @@ public class BeverageStore {
     }
 
     public void makePayment() {
+        boolean valid = false;
+        double inserted;
+        do {
 
-        System.out.println();
-        System.out.println("Bitte Münzen einwerfen:");
-        System.out.println();
-        System.out.println("Eingeworfener Betrag (double): ");
-        double inserted = scanner.nextDouble();
-        scanner.nextLine();
+            System.out.println();
+            System.out.println("Bitte Münzen einwerfen!");
+            System.out.println();
+            System.out.println("Eingeworfener Betrag: ");
+            while (!scanner.hasNextDouble()) {
+                System.out.println("Bitte einen gültigen Wert eingeben! Komma mit ','. Nochmal versuchen: ");
+                scanner.next();
+            }
+            inserted = scanner.nextDouble();
+            scanner.nextLine();
+            valid = true;
+        } while(!valid);
+
         inserted = Math.round(100.0 * inserted) / 100.0;
         while (inserted < 0.5) {
             System.out.println("Bitte weitere Münzen einwerfen (min. 50 Cent)!");
@@ -59,24 +69,25 @@ public class BeverageStore {
         cupSelection = Integer.parseInt(cup);
         if ((cupSelection == 0)) {
             System.out.println("Bitte Ihren Becher unterstellen!");
+            System.out.println();
             setCup(false);
         } else setCup(true);
 
     }
 
-    public void preSelectSugar(){
+    public void preSelectSugar() {
 
         int sugarSelection;
         String sugar;
-        do{
+        do {
             System.out.println("Wählen Sie '1' für reguläre Zubereitung oder '0', wenn Sie keinen Zucker wollen: ");
             sugar = scanner.nextLine();
         } while (!sugar.equals("0") && !sugar.equals("1"));
         sugarSelection = Integer.parseInt(sugar);
-        if(sugarSelection==0){
+        if (sugarSelection == 0) {
             System.out.println("Getränk wird ohne Zucker zubereite!");
             setSugar(false);
-        }else setSugar(true);
+        } else setSugar(true);
     }
 
 
