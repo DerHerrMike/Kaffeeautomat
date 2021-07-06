@@ -14,10 +14,12 @@ public class Driver {
         BeverageStore automat = new BeverageStore(factory);
 
         DecimalFormat f = new DecimalFormat("##.00");
+
         automat.makePayment();
         automat.placeOrder();
         System.out.println();
         System.out.println();
+
         switch (automat.getOrderBeverage()) {
             case "Großer Brauner" -> presentGB(automat, f);
             case "Heiße Schoko" -> presentSH(automat, f);
@@ -36,8 +38,8 @@ public class Driver {
 
         AbstractBeverage grosserBrauner = automat.orderBeverage("Großer Brauner");
         System.out.println(grosserBrauner.getDescription() + ".");
-        System.out.println("Der Preis beträgt € " + grosserBrauner.cost() + ".");
-        System.out.println("Münzauswurf: " + (f.format(automat.getInsertedAmount() - grosserBrauner.cost())) + "€");
+        System.out.println("Der Preis beträgt € " + f.format(grosserBrauner.cost()) + ".");
+        System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - grosserBrauner.cost())));
         System.out.println();
     }
 
@@ -45,8 +47,8 @@ public class Driver {
 
         AbstractBeverage cappuccino = automat.orderBeverage("Cappuccino");
         System.out.println(cappuccino.getDescription() + ".");
-        System.out.println("Der Preis beträgt € " + cappuccino.cost() + ".");
-        System.out.println("Münzauswurf: " + (f.format(automat.getInsertedAmount() - cappuccino.cost()) + " €"));
+        System.out.println("Der Preis beträgt € " + f.format(cappuccino.cost()) + ".");
+        System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - cappuccino.cost())));
         System.out.println();
     }
 
@@ -54,8 +56,8 @@ public class Driver {
 
         AbstractBeverage espresso = automat.orderBeverage("Espresso");
         System.out.println(espresso.getDescription() + ".");
-        System.out.println("Der Preis beträgt € " + espresso.cost() + ".");
-        System.out.println("Münzauswurf: " + ((f.format(automat.getInsertedAmount() - espresso.cost())) + "€"));
+        System.out.println("Der Preis beträgt € " + f.format(espresso.cost()) + ".");
+        System.out.println("Münzauswurf €: " + ((f.format(automat.getInsertedAmount() - espresso.cost()))));
         System.out.println();
     }
 
@@ -63,8 +65,8 @@ public class Driver {
 
         AbstractBeverage kaffeeSchwarz = automat.orderBeverage("Kaffee Schwarz");
         System.out.println(kaffeeSchwarz.getDescription() + ".");
-        System.out.println("Der Preis beträgt € " + kaffeeSchwarz.cost() + ".");
-        System.out.println("Münzauswurf: " + (f.format(automat.getInsertedAmount() - kaffeeSchwarz.cost()) + "€"));
+        System.out.println("Der Preis beträgt € " + f.format(kaffeeSchwarz.cost()) + ".");
+        System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - kaffeeSchwarz.cost())));
         System.out.println();
     }
 
@@ -72,8 +74,8 @@ public class Driver {
 
         AbstractBeverage kleinerBrauner = automat.orderBeverage("Kleiner Brauner");
         System.out.println(kleinerBrauner.getDescription() + ".");
-        System.out.println("Der Preis beträgt € " + kleinerBrauner.cost() + ".");
-        System.out.println("Münzauswurf: " + (f.format(automat.getInsertedAmount() - kleinerBrauner.cost()) + "€"));
+        System.out.println("Der Preis beträgt € " + f.format(kleinerBrauner.cost()) + ".");
+        System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - kleinerBrauner.cost())));
         System.out.println();
     }
 
@@ -81,8 +83,8 @@ public class Driver {
 
         AbstractBeverage latte = automat.orderBeverage("Latte");
         System.out.println(latte.getDescription() + ".");
-        System.out.println("Der Preis beträgt € " + latte.cost() + ".");
-        System.out.println("Münzauswurf: " + (f.format(automat.getInsertedAmount() - latte.cost()) + "€"));
+        System.out.println("Der Preis beträgt € " + f.format(latte.cost() + "."));
+        System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - latte.cost())));
         System.out.println();
     }
 
@@ -90,8 +92,8 @@ public class Driver {
 
         AbstractBeverage irish = automat.orderBeverage("Irish Coffee");
         System.out.println(irish.getDescription() + ".");
-        System.out.println("Der Preis beträgt € " + irish.cost() + ".");
-        System.out.println("Münzauswurf: " + (f.format(automat.getInsertedAmount() - irish.cost()) + "€"));
+        System.out.println("Der Preis beträgt € " + f.format(irish.cost() + "."));
+        System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - irish.cost())));
         System.out.println();
     }
 
@@ -99,8 +101,8 @@ public class Driver {
 
         AbstractBeverage schokolade = automat.orderBeverage("Heiße Schoko");
         System.out.println(schokolade.getDescription() + ".");
-        System.out.println("Der Preis beträgt € " + schokolade.cost() + ".");
-        System.out.println("Münzauswurf: " + (f.format(automat.getInsertedAmount() - schokolade.cost()) + "€"));
+        System.out.println("Der Preis beträgt € " + f.format(schokolade.cost()) + ".");
+        System.out.println("Münzauswurf €: " + (f.format(automat.getInsertedAmount() - schokolade.cost())));
         System.out.println();
 
     }
